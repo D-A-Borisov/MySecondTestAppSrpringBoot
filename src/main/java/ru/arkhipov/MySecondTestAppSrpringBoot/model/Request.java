@@ -15,6 +15,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Request {
 
+    public String toString() {
+        return "{" +
+                "uid='" + uid + '\'' +
+                ", operationUid='" + operationUid + '\'' +
+                ", systemName='" + systemName + '\'' +
+                ", systemTime='" + systemTime + '\'' +
+                ", course='" + source + '\'' +
+                ", communicationId=" + communicationId +
+                ", templateId=" + templateId +
+                ", productCode=" + productCode +
+                ", smsCode=" + smsCode +
+                '}';
+    }
+
     @NotBlank(message = "UID обязателен")
     @Size(max = 32, message = "UID не должен превышать 32 символа")
     private String uid;
@@ -23,7 +37,7 @@ public class Request {
     @Size(max = 32, message = "OperationUid не должен превышать 32 символа")
     private String operationUid;
 
-    private String systemName;
+    private Systems systemName;
     @NotBlank(message = "SystemTime обязателен")
     private String systemTime;
 
